@@ -4,6 +4,8 @@
 
 ## Estado del código
 
+[![CI](https://github.com/NataliaLM/iwvg-devops-laRosaMontero-NataliaP/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/NataliaLM/iwvg-devops-laRosaMontero-NataliaP/actions/workflows/ci.yml)
+
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iwvg-devops-laRosaMontero-NataliaP&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=iwvg-devops-laRosaMontero-NataliaP)
 
 
