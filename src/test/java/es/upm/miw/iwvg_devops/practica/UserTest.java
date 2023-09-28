@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserTest {
 
     private User user;
-    private ArrayList<Fraction> fractions;
+
     @BeforeEach
     void before() {
-        fractions = new ArrayList<>();
+        ArrayList<Fraction> fractions = new ArrayList<>();
         fractions.add(new Fraction(2, 2));
         fractions.add(new Fraction(3, 4));
         user = new User("223", "Ana", "Benerro", fractions);
@@ -67,5 +67,4 @@ public class UserTest {
     public void testToString() {
         assertEquals("User{id='223', name='Ana', familyName='Benerro', fractions=[Fraction{numerator=2, denominator=2}, Fraction{numerator=3, denominator=4}]}", user.toString());
     }
-
 }
