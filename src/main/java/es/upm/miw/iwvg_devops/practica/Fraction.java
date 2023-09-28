@@ -33,6 +33,51 @@ public class Fraction {
         return (double) numerator / denominator;
     }
 
+    public boolean isProper() {
+        return Math.abs(numerator) < Math.abs(denominator);
+    }
+
+    public boolean isImproper() {
+        return Math.abs(numerator) >= Math.abs(denominator);
+    }
+
+    public boolean isEquivalent(Fraction fraction) {
+        int greatestCommonDivisor = greatestCommonDivisor(Math.abs(numerator), Math.abs(denominator));
+        int fractionGreatestCommonDivisor = greatestCommonDivisor(Math.abs(fraction.numerator), Math.abs(fraction.denominator));
+        int reducedNumerator = numerator / greatestCommonDivisor;
+        int reducedDenominator = denominator / greatestCommonDivisor;
+        int fractionReducedNumerator = fraction.numerator / fractionGreatestCommonDivisor;
+        int fractionReducedDenominator = fraction.denominator / fractionGreatestCommonDivisor;
+        return reducedNumerator == fractionReducedNumerator && reducedDenominator == fractionReducedDenominator;
+    }
+
+    public Fraction add(Fraction fraction) {
+        int newNumerator = numerator * fraction.denominator + fraction.numerator * denominator;
+        int newDenominator = denominator * fraction.denominator;
+        return new Fraction(newNumerator, newDenominator);
+    }
+
+    public Fraction multiply(Fraction fraction) {
+        int newNumerator = numerator * fraction.numerator;
+        int newDenominator = denominator * fraction.denominator;
+        return new Fraction(newNumerator, newDenominator);
+    }
+
+    public Fraction divide(Fraction fraction) {
+        int newNumerator = numerator * fraction.denominator;
+        int newDenominator = denominator * fraction.numerator;
+        return new Fraction(newNumerator, newDenominator);
+    }
+
+    private int greatestCommonDivisor(int numerator, int denominator) {
+        while (denominator != 0) {
+            int temporal = denominator;
+            denominator = numerator % denominator;
+            numerator = temporal;
+        }
+        return Math.abs(numerator);
+    }
+
     @Override
     public String toString() {
         return "Fraction{" +
