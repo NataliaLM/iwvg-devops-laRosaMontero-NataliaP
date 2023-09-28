@@ -3,20 +3,22 @@ package es.upm.miw.iwvg_devops.practica;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 public class FractionTest {
     private Fraction fraction;
     private Fraction anotherFraction;
+
     @BeforeEach
     public void before() {
 
-        fraction = new Fraction(5, 6);
+        fraction = new Fraction(7, 6);
         anotherFraction = new Fraction(3, 4);
     }
 
     @Test
     public void testConstructorWithParameters() {
-        assertEquals(5, fraction.getNumerator());
+        assertEquals(7, fraction.getNumerator());
         assertEquals(6, fraction.getDenominator());
     }
 
@@ -41,29 +43,29 @@ public class FractionTest {
 
     @Test
     public void testDecimal() {
-        assertEquals(5.0 / 6.0, fraction.decimal(), 0.0001);
+        assertEquals(7.0 / 6.0, fraction.decimal(), 0.0001);
     }
 
     @Test
     public void testToString() {
-        assertEquals("Fraction{numerator=5, denominator=6}", fraction.toString());
+        assertEquals("Fraction{numerator=7, denominator=6}", fraction.toString());
     }
 
     @Test
     public void testIsProper() {
-        assertTrue(fraction.isProper());
-        assertFalse(anotherFraction.isProper());
+        assertFalse(fraction.isProper());
+        assertTrue(anotherFraction.isProper());
     }
 
     @Test
     public void testIsImproper() {
-        assertFalse(fraction.isImproper());
-        assertTrue(anotherFraction.isImproper());
+        assertTrue(fraction.isImproper());
+        assertFalse(anotherFraction.isImproper());
     }
 
     @Test
     public void testIsEquivalent() {
-        Fraction equivalentFraction = new Fraction(15, 24);
+        Fraction equivalentFraction = new Fraction(14, 12);
         assertTrue(fraction.isEquivalent(equivalentFraction));
         assertFalse(fraction.isEquivalent(anotherFraction));
     }
@@ -71,19 +73,22 @@ public class FractionTest {
     @Test
     public void testAdd() {
         Fraction result = fraction.add(anotherFraction);
-        assertEquals(new Fraction(17, 12), result);
+        Fraction secondResult = new Fraction(46, 24);
+        assertThat(result).usingRecursiveComparison().isEqualTo(secondResult);
     }
 
     @Test
     public void testMultiply() {
         Fraction result = fraction.multiply(anotherFraction);
-        assertEquals(new Fraction(1, 2), result);
+        Fraction secondResult = new Fraction(21, 24);
+        assertThat(result).usingRecursiveComparison().isEqualTo(secondResult);
     }
 
     @Test
     public void testDivide() {
         Fraction result = fraction.divide(anotherFraction);
-        assertEquals(new Fraction(8, 9), result);
+        Fraction secondResult = new Fraction(28, 18);
+        assertThat(result).usingRecursiveComparison().isEqualTo(secondResult);
     }
 
 }
