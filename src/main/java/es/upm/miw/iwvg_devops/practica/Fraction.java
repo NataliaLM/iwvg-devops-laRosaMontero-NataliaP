@@ -48,7 +48,7 @@ public class Fraction {
         int reducedDenominator = denominator / greatestCommonDivisor;
         int fractionReducedNumerator = fraction.numerator / fractionGreatestCommonDivisor;
         int fractionReducedDenominator = fraction.denominator / fractionGreatestCommonDivisor;
-        return reducedNumerator == fractionReducedNumerator && reducedDenominator == fractionReducedDenominator;
+        return (reducedNumerator == fractionReducedNumerator) && (reducedDenominator == fractionReducedDenominator);
     }
 
     public Fraction add(Fraction fraction) {
