@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class UserTest {
 
     private User user;
-
     @BeforeEach
     void before() {
         ArrayList<Fraction> fractions = new ArrayList<>();
