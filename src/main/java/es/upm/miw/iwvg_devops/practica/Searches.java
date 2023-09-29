@@ -34,7 +34,6 @@ public class Searches {
                 .filter(fraction -> fraction.getUser() != null && fraction.getUser().getId().equals(id))
                 .reduce(Fraction::divide)
                 .orElse(null);
-
     }
 
     public Stream<String> findUserFamilyNameInitialBySomeProperFraction() {
