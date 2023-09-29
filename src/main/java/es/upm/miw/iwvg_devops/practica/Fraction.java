@@ -3,19 +3,16 @@ package es.upm.miw.iwvg_devops.practica;
 public class Fraction {
     private int numerator;
     private int denominator;
-    private int userId;
+    private User user;
 
     public Fraction(int numerator, int denominator) {
         this.numerator = numerator;
         this.denominator = denominator;
     }
-    public Fraction(int numerator, int denominator, int userId) {
+    public Fraction(int numerator, int denominator, User user) {
         this.numerator = numerator;
         this.denominator = denominator;
-        this.userId = userId;
-    }
-    public int getUserId() {
-        return userId;
+        this.user = user;
     }
 
     public Fraction() {
@@ -95,4 +92,11 @@ public class Fraction {
                 '}';
     }
 
+
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

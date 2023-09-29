@@ -14,12 +14,19 @@ public class Searches {
         this.fractions = fractions;
     }
 
-    public Fraction findFirstProperFractionByUserId(int userId) {
-        Optional<Fraction> properFraction = fractions.stream()
-                .filter(fraction -> fraction.isProper() && fraction.getUserId() == userId)
-                .findFirst();
+    public Fraction findFirstProperFractionByUserId(String id) {
+        return fractions.stream()
+                .filter(fraction -> fraction.getUser() != null && fraction.getUser().getId().equals(id))
+                .filter(Fraction::isProper)
+                .findFirst()
+                .orElse(null);
+    }
 
-        return properFraction.orElse(null);
+    public Stream<String> findUserFamilyNameByAllNegativeSignFractionDistinct() {
+        return fractions.stream()
+                .filter(fraction -> fraction.getNumerator() < 0)
+                .map(fraction -> fraction.getUser().getFamilyName())
+                .distinct();
     }
 
 
