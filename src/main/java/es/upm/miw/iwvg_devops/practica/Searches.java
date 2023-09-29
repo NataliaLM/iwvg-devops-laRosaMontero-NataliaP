@@ -36,4 +36,11 @@ public class Searches {
                 .orElse(null);
     }
 
+    public Stream<String> findUserFamilyNameInitialBySomeProperFraction() {
+        return fractions.stream()
+                .filter(Fraction::isProper)
+                .map(fraction -> fraction.getUser().initials());
+    }
+
+
 }
