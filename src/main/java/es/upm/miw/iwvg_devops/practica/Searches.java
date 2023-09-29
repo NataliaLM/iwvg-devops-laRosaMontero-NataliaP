@@ -31,7 +31,7 @@ public class Searches {
 
     public Fraction findFractionDivisionByUserId(String id) {
         return fractions.stream()
-                .filter(fraction -> fraction.getUser() != null && fraction.getUser().getId().equals(id))
+                .filter(fraction -> fraction.getUser() != null || fraction.getUser().getId().equals(id))
                 .reduce(Fraction::divide)
                 .orElse(null);
     }
