@@ -60,9 +60,11 @@ public class SearchesTest {
     @Test
     public void testFindFractionDivisionByUserId() {
         Fraction result = searches.findFractionDivisionByUserId("1");
-        Fraction secondResult = new Fraction(60,12);
+        Fraction secondResult = new Fraction(4,6);
         assertThat(result).usingRecursiveComparison().isEqualTo(secondResult);
 
+        result = searches.findFractionDivisionByUserId("3");
+        assertNull(result);
     }
 
     @Test
