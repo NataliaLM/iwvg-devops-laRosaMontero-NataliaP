@@ -57,4 +57,15 @@ public class SearchesTest {
         assertEquals("Cerna", result.get(0));
     }
 
+    @Test
+    public void testFindFractionDivisionByUserId() {
+        Fraction result = searches.findFractionDivisionByUserId("1");
+        //assertEquals(new Fraction(4, 6), result);
+        Fraction secondResult = new Fraction(4,6);
+        assertThat(result).usingRecursiveComparison().isEqualTo(secondResult);
+
+        result = searches.findFractionDivisionByUserId("3");
+        assertNull(result);
+    }
+
 }
