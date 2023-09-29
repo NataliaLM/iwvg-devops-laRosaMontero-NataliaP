@@ -79,4 +79,14 @@ public class SearchesTest {
         assertEquals("A.", result.get(0));
     }
 
+    @Test
+    public void testFindUserFamilyNameInitialBySomeProperFraction() {
+        List<String> result = searches.findUserFamilyNameInitialBySomeProperFraction()
+                .collect(Collectors.toList());
+
+        assertEquals(4, result.size());
+        assertEquals("A.", result.get(0));
+    }
+
+
 }
