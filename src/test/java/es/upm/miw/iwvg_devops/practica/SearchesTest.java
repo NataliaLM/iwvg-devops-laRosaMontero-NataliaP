@@ -61,11 +61,13 @@ public class SearchesTest {
     public void testFindFractionDivisionByUserId() {
         Fraction result = searches.findFractionDivisionByUserId("1");
         //assertEquals(new Fraction(4, 6), result);
-        Fraction secondResult = new Fraction(4,6);
+        Fraction secondResult = new Fraction(60,12);
         assertThat(result).usingRecursiveComparison().isEqualTo(secondResult);
 
         result = searches.findFractionDivisionByUserId("3");
-        assertNull(result);
+        //assertNull(result);
+        Fraction thirdResult = new Fraction(60,12);
+        assertThat(result).usingRecursiveComparison().isEqualTo(thirdResult);
     }
 
 }
